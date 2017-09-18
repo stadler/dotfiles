@@ -8,8 +8,8 @@ read -n 1
 # Homebrew                                                                    #
 ###############################################################################
 
-$HOME/dotfiles/install/brew.sh
-$HOME/dotfiles/install/brew-cask.sh
+$HOME/.dotfiles/install/brew.sh
+$HOME/.dotfiles/install/brew-cask.sh
 
 ###############################################################################
 # OSX defaults                                                                #
