@@ -161,26 +161,12 @@ echo "done"
 #
 
 
-# Atom editor settings
-#echo -n "Copying Atom settings.."
-#mv -f ~/.atom ~/.dotfiles_old/
-#ln -s $HOME/.dotfiles/atom ~/.atom
-#echo "done"
-
-
 declare -a FILES_TO_SYMLINK=(
 
-  'shell/shell_aliases'
-  'shell/shell_config'
-  'shell/shell_exports'
-  'shell/shell_functions'
   'shell/bash_profile'
-  'shell/bash_prompt'
   'shell/bashrc'
   'shell/zshrc'
-  'shell/ackrc'
   'shell/curlrc'
-  'shell/gemrc'
   'shell/inputrc'
   'shell/screenrc'
 
@@ -190,10 +176,7 @@ declare -a FILES_TO_SYMLINK=(
 
 )
 
-# FILES_TO_SYMLINK="$FILES_TO_SYMLINK .vim bin" # add in vim and the binaries
-
 # Move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks from the homedir to any files in the ~/.dotfiles directory specified in $files
-
 for i in ${FILES_TO_SYMLINK[@]}; do
   echo "Moving any existing dotfiles from ~/.${i##*/} to $dir_backup"
   mv ~/.${i##*/} ~/.dotfiles_old/
@@ -286,21 +269,6 @@ install_zsh () {
 # Install
 main
 install_zsh
-
-###############################################################################
-# Zsh                                                                         #
-###############################################################################
-
-# Install Zsh settings
-ln -s ~/.dotfiles/zsh/themes/zsh-theme $HOME/.oh-my-zsh/themes
-
-
-###############################################################################
-# Terminal & iTerm 2                                                          #
-###############################################################################
-
-# Install the Solarized Dark theme for iTerm
-#open "${HOME}/.dotfiles/iterm/themes/Solarized Dark.itermcolors"
 
 # Reload zsh settings
 source ~/.zshrc
