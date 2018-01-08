@@ -1,0 +1,47 @@
+echo "Initializing Shell..."
+
+## Exports
+
+# Default Exports
+export EDITOR="/usr/local/bin/atom"
+export MAIL=/var/mail/jstadler
+export SHELL=/bin/zsh
+export PAGER='less'
+
+# Java
+export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Java Version Manager
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
+# Set default blocksize for ls, df, du
+export BLOCKSIZE=1k
+
+
+## Aliases
+
+alias ls='ls'
+alias ll='ls -lah'
+alias la='ls -lah'
+alias l='ls -lah'
+
+alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
+alias ..='cd ../'                           # Go back 1 directory level
+alias ...='cd ../../'                       # Go back 2 directory levels
+alias .3='cd ../../../'                     # Go back 3 directory levels
+alias .4='cd ../../../../'                  # Go back 4 directory levels
+alias .5='cd ../../../../../'               # Go back 5 directory levels
+alias .6='cd ../../../../../../'            # Go back 6 directory levels
+
+alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
+alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
+trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
+ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
+
+alias gitclean='git branch --merged | grep -v \* | grep -v master | grep -v dev | grep -v release | xargs -n 1 git branch -d'
+alias gitlog='git log --pretty=oneline --abbrev-commit --graph'
+
+alias boottimes='sysctl -a |egrep "sleeptime|waketime|boottime"'
+alias flushcache='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'

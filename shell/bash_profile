@@ -1,59 +1,13 @@
-## Exports
+### Shell independant stuff
+source ~/.profile
 
-# Default Exports
-export EDITOR="/usr/local/bin/atom"
-export MAIL=/var/mail/jstadler
-export SHELL=/bin/zsh
-export PAGER='less'
-
-# Java
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
-export PATH=$JAVA_HOME/bin:$PATH
-
-# Java Version Manager
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-# Node Version Manager
-export NVM_DIR="/Users/jstadler/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
-
-# Set default blocksize for ls, df, du
-export BLOCKSIZE=1k
-
-
-## Aliases
-
-alias ls='ls'
-alias ll='ls -lah'
-alias la='ls -lah'
-alias l='ls -lah'
-
-alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-alias ..='cd ../'                           # Go back 1 directory level
-alias ...='cd ../../'                       # Go back 2 directory levels
-alias .3='cd ../../../'                     # Go back 3 directory levels
-alias .4='cd ../../../../'                  # Go back 4 directory levels
-alias .5='cd ../../../../../'               # Go back 5 directory levels
-alias .6='cd ../../../../../../'            # Go back 6 directory levels
-
-alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
-alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
-trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
-ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
-
-alias gitclean='git branch --merged | grep -v \* | grep -v master | grep -v dev | grep -v release | xargs -n 1 git branch -d'
-alias gitlog='git log --pretty=oneline --abbrev-commit --graph'
-
-alias boottimes='sysctl -a |egrep "sleeptime|waketime|boottime"'
-alias flushcache='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
-
+### Should only be run by bash
+echo "Initializing BASH..."
 
 ## Bash Prompt
 # Git branch in prompt.
 parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -61,13 +15,10 @@ GREEN="\[\033[0;33m\]"
 BLUE="\[\033[0;34m\]"
 BLACK="\[\033[0;30m\]"
 export PS1="$GREEN\u@\h:$BLUE\w$BLACK\$(parse_git_branch)\$ "
-
-
 ## Completions
 # Bash
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-
 # Brew
 if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+. `brew --prefix`/etc/bash_completion
 fi

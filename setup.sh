@@ -93,6 +93,7 @@ echo "done"
 
 declare -a FILES_TO_SYMLINK=(
 
+  'shell/profile'
   'shell/bash_profile'
   'shell/bashrc'
   'shell/zshrc'
