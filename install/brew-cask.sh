@@ -8,11 +8,14 @@ apps=(
     google-backup-and-sync
     google-chrome
     java
+    java8
     atom
-    intellij-idea-ce
     slack
     whatsapp
     keepassxc
+    intellij-idea
+    keka
+    gpg-suite
 )
 
 brew cask install "${apps[@]}"

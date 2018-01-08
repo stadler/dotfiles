@@ -27,8 +27,11 @@ apps=(
     tree
     wget
     zsh
+    zsh-completions
     ssh-copy-id
     maven
+    gnupg
+    nmap
 )
 
 brew install "${apps[@]}"
