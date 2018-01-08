@@ -10,9 +10,13 @@ export PAGER='less'
 export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 export PATH=$JAVA_HOME/bin:$PATH
 
+# Java Version Manager
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+
 # Node Version Manager
 export NVM_DIR="/Users/jstadler/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # Set default blocksize for ls, df, du
@@ -67,4 +71,3 @@ export PS1="$GREEN\u@\h:$BLUE\w$BLACK\$(parse_git_branch)\$ "
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
-

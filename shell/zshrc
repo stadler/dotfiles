@@ -38,4 +38,3 @@ ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
 fpath=(/usr/local/share/zsh-completions $fpath)
-
