@@ -15,7 +15,6 @@ apps=(
     keepassxc
     intellij-idea
     keka
-    gpg-suite
 )
 
 brew cask install "${apps[@]}"

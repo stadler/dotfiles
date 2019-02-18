@@ -30,8 +30,6 @@ apps=(
     zsh-completions
     ssh-copy-id
     maven
-    gnupg
-    nmap
 )
 
 brew install "${apps[@]}"
